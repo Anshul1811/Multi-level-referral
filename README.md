@@ -13,8 +13,7 @@ A Node.js backend system enabling multi-level referrals with real-time profit sh
 - System Architecture
 - Real-Time Notifications
 - Detailed Documentation
-- Additional Notes
-  ---
+---
 
 ## Project Overview
 This system enables users to refer up to 8 people directly and facilitates profit sharing
@@ -35,7 +34,7 @@ with live data updates for parent users whenever a leg user completes a purchase
 
 
 ## Tech Stack
-- Node.js
+- Node.js(v-16)
 - Express.js
 - Sequelize ORM with MySQL
 - dotenv for environment variables
@@ -58,21 +57,17 @@ with live data updates for parent users whenever a leg user completes a purchase
  MYSQL_HOST=localhost
  MYSQL_USER=root
  MYSQL_PASSWORD=your_password
- MYSQL_DATABASE=sports_dunia
+ MYSQL_DATABASE=database_name
  ```
 4. Create MySQL database
  ```
  CREATE DATABASE sports_dunia;
  ```
-5. Run seed script to insert mock data
- ```
- node seed.js
- ```
-6. Start server
+5. Start server
  ```
  npm start
  ```
-7. Access server at `http://localhost:3000`
+6. Access server at `http://localhost:3000`
 ---
 
 
@@ -103,15 +98,15 @@ with live data updates for parent users whenever a leg user completes a purchase
 
 
 ## API Endpoints
-### 1. POST /api/earnings/purchase
+### 1. POST /api/purchase
 Records a purchase and distributes earnings.
 Request:
 ```
 {
- "user_id": 103,
+ "user_id": 3,
  "amount": 2000,
- "level1_referral": 102,
- "level2_referral": 101
+ "level1_referral": 2,
+ "level2_referral": 1
 }
 ```
 Response:
@@ -122,18 +117,18 @@ Response:
 ```
 
 
-### 2. POST /api/earnings/getUserReport
+### 2. POST /api/getUserReport
 Fetches profit report for a user.
 Request:
 ```
 {
- "user_id": 102
+ "user_id": 1
 }
 ```
 Response:
 ```
 {
- "user_id": 102,
+ "user_id": 1,
  "total_earned": 1200,
  "level1_earnings": 900,
  "level2_earnings": 300,
@@ -142,18 +137,18 @@ Response:
 ```
 
 
-### 3. POST /api/earnings/referrals
+### 3. POST /api/referrals
 Returns analytics for referrals.
 Request:
 ```
 {
- "user_id": 102
+ "user_id": 1
 }
 ```
 Response:
 ```
 {
- "user_id": 102,
+ "user_id": 1,
  "direct_referrals": [...]
 }
 ```
@@ -172,7 +167,7 @@ curl http://localhost:3000/api/notifications/earnings-stream
 - Express.js + Sequelize (MySQL)
 - Multi-level referral tree managed via `referred_by` and `referral_code`
 - Real-time purchase updates to level 1 (5%) and level 2 (1%)
-- Purchase amount must exceed ■1000 to trigger referral credits
+- Purchase amount must exceed 1000 to trigger referral credits
 - SSE for live notification streaming
 - Modular, testable codebase
 ---
@@ -191,7 +186,3 @@ curl http://localhost:3000/api/notifications/earnings-stream
 - Aggregated reports by API
 ---
 
-## Additional Notes
-- Use middleware for auth in production
-- Enforce 8-referral limit in referral assignment logic
-- Easily extendable for more levels
