@@ -5,13 +5,13 @@ import { seed } from './models/seed.js';
 
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 (async () => {
   try {
     await sequelize.authenticate();
     console.log('DB connected!');
-    await sequelize.sync({ alter: true });
+    await sequelize.sync();
     await seed();
     app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
   } catch (err) {
