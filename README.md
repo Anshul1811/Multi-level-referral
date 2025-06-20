@@ -12,20 +12,20 @@ A Node.js backend system enabling multi-level referrals with real-time profit sh
 - API Endpoints
 - System Architecture
 - Real-Time Notifications
-- Detailed Documentation
+- Logic
 ---
 
 ## Project Overview
 This system enables users to refer up to 8 people directly and facilitates profit sharing
 based on a multi-level referral hierarchy. Earnings are tracked and distributed in real-time
 with live data updates for parent users whenever a leg user completes a purchase.
----
+ ---
 
 
 ## Features
 - Direct Earnings: Parent users earn 5% profit from their direct referrals (Level 1).
 - Indirect Earnings: Parent users earn 1% profit from second-level referrals (Level 2).
-- Earnings apply only when purchase exceeds ■1000.
+- Earnings apply only when purchase exceeds 1000.
 - Real-time updates of earnings via SSE notifications.
 - Detailed profit reports and referral analytics.
 - Purchase validation and edge case handling (inactive users, referral limits).
@@ -173,7 +173,7 @@ curl http://localhost:3000/api/notifications/earnings-stream
 ---
 
 
-## Detailed Documentation
+## Logic
 ### Profit Distribution Logic
 - **Direct Earnings**: 5% to level 1 referrer
 - **Indirect Earnings**: 1% to level 2 referrer
