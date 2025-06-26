@@ -45,7 +45,7 @@ with live data updates for parent users whenever a leg user completes a purchase
 ## Setup Instructions
 1. Clone repository
  ```
- git clone https://github.com/Anshul1811/Sports-Dunia-Assignment
+ git clone https://github.com/Anshul1811/Multi-level-referral
  ```
 2. Install dependencies
  ```
