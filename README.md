@@ -61,7 +61,7 @@ with live data updates for parent users whenever a leg user completes a purchase
  ```
 4. Create MySQL database
  ```
- CREATE DATABASE sports_dunia;
+ CREATE DATABASE referrals;
  ```
 5. Start server
  ```
